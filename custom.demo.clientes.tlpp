@@ -1,0 +1,25 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#INCLUDE "FILEIO.CH"
+
+namespace custom.demo
+
+Class Clientes
+
+	@get( endpoint="/custom/demo/clientes", description="Listagem Simples")
+	Public Method buscaCliente() as logical
+	Public Method New() as object
+EndClass
+
+Method New as object Class Clientes
+Return self
+
+Method buscaCliente as logical Class Clientes
+
+	oRest:setKeyHeaderResponse('Content-Type','application/json; charset=utf-8')
+
+
+	oRest:SetResponse('{"message":"Hello World"}')
+
+Return .T.
+
